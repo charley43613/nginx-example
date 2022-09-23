@@ -10,4 +10,4 @@ COPY environments/nginx.conf /etc/nginx/nginx.conf
 # RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx  && chmod -R g+w /etc/nginx
 # output port set WORKDIR to app
 
-EXPOSE 80
+EXPOSE 8080
