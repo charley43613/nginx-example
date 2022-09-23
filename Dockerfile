@@ -1,4 +1,5 @@
-FROM nginx:latest
+FROM  nginxinc/nginx-unprivileged 
+
 # deploy specific nginx configuration file
 COPY environments/nginx.conf /etc/nginx/nginx.conf
 #COPY certs/server.crt /etc/nginx/certs/server.crt
