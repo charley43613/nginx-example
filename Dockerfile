@@ -1,4 +1,4 @@
-FROM  openshift/nginx 
+FROM nginx:alpine 
 
 # deploy specific nginx configuration file
 COPY environments/nginx.conf /etc/nginx/nginx.conf
