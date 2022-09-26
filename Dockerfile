@@ -1,4 +1,4 @@
-FROM  nginxinc/nginx-unprivileged 
+FROM  openshift/nginx 
 
 # deploy specific nginx configuration file
 COPY environments/nginx.conf /etc/nginx/nginx.conf
@@ -8,6 +8,10 @@ COPY environments/nginx.conf /etc/nginx/nginx.conf
 #COPY site/index.html /etc/nginx/html/index.html
 # support running as arbitrary user which belogs to the root group
 # RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx  && chmod -R g+w /etc/nginx
-# output port set WORKDIR to app
+# output port set WORKDIR to appRUN chmod -R 777 /var/log/nginx /var/cache/nginx /var/run \
+RUN chmod -R 777 /var/log/nginx /var/cache/nginx /var/run \
+     && chgrp -R 0 /etc/nginx \
+     && chmod -R g+rwX /etc/nginx \
+     && rm /etc/nginx/conf.d/default.conf
 
 EXPOSE 8080
